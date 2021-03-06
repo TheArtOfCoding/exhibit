@@ -60,7 +60,6 @@ export default class App extends Component {
 
   render() {
     const { loggedIn, loaded } = this.state;
-    console.log(loggedIn, loaded);
 
     if (!loaded) {
       return (
