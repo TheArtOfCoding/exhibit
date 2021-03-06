@@ -1,0 +1,7 @@
+.cache
+.expo/
+.expo-shared/
+package.json
+package-lock.json
+yarn.lock
+public
