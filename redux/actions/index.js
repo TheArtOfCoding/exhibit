@@ -1,4 +1,5 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
+import 'firebase/firestore';
 import { USER_STATE_CHANGE, USER_LOGOUT } from '../constants';
 
 export function fetchUser() {

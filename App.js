@@ -13,6 +13,8 @@ import Login from './components/auth/Login';
 import MainScreen from './components';
 
 const Stack = createStackNavigator();
+// Kept just to hide the unwanted warning popups in application.
+console.disableYellowBox = true;
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrvonAUyW0QppKbxM_p3JTSuRDrFgSK1M',
@@ -34,7 +36,7 @@ export default class App extends Component {
   };
 
   styles = StyleSheet.create({
-    container: {
+    loader: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
@@ -63,7 +65,7 @@ export default class App extends Component {
 
     if (!loaded) {
       return (
-        <View style={this.styles.container}>
+        <View style={this.styles.loader}>
           <Text>Loading...</Text>
         </View>
       );
@@ -87,7 +89,11 @@ export default class App extends Component {
 
     return (
       <Provider store={store}>
-        <MainScreen />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName='Landing'>
+            <Stack.Screen name='Exhibit' component={MainScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </Provider>
     );
   }
